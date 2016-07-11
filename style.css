@@ -1,1 +1,47 @@
-p { color: red; }
+body 
+{ 
+	margin: 20px; 
+	color: white;
+}			
+
+h1
+{
+	font-size: 1em;	
+}
+
+div.text
+{
+	border-left: solid 4px rgb(0,170,162);
+	font-family: Consolas, monospace;
+	font-size: 0.3em;
+	padding: 10px;
+	line-height: 0.8em;
+	margin: 10px;
+}
+
+div.text.main
+{
+	border-color: rgb(255,40,44);
+	margin-bottom: 40px;
+}
+
+code 
+{ 
+	font-family: monospace; 
+	font-size: 0.3em; 
+	color: rgb(0,170,162); 
+	border-left: solid 4px white;
+	display: block;
+	padding: 10px;
+	margin: 10px;
+}
+
+code em 
+{
+	color: rgb(0,255,162);			
+}
+
+a, a:hover 
+{ 
+	color: rgb(0,255,162);
+}
