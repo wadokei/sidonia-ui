@@ -1,0 +1,213 @@
+/* 
+ * Sidonia UI
+ * version: 0.3
+ * wadokei.github.io/sidonia-ui
+ */
+
+//background color of website
+// also used as default color for content elements
+$colorBackground: rgb(15,34,43);
+
+//flavours
+// add name and color to create a custom flavour
+$flavour-list: (
+	neutral rgb(255,255,255),
+	caution rgb(255,40,44),
+	positive rgb(0,255,162),
+	warning rgb(255,216,0),
+	ok rgb(0,255,55),
+	info rgb(46,145,150),
+	love rgb(193,36,115)
+);
+
+//dimensions
+$boxWidth: 396px;
+$boxHeight: 200px;
+
+//mixins	
+@mixin box-frame($color)
+{
+	color: $color;
+	position: relative;		
+	box-shadow: 0px 0px 9px 2px rgba( $color, .3 );
+}
+	
+@mixin box-stripes($color)
+{
+	background: repeating-linear-gradient(
+		45deg,
+		$color,
+		$color 10px,
+		transparent 10px,
+		transparent 20px
+	);
+}
+
+//keyframes
+@keyframes progress
+{
+	to {background-position: $boxWidth + 2px 0;}
+}
+
+@keyframes blink {  
+	0% { opacity: 1;  }
+	100% { opacity: 0.1; }
+}
+
+//selectors
+body
+{
+	background-color: $colorBackground;
+	font-family: Audiowide, consolas, monospace;
+	font-size: 60px;
+}
+
+.sidonia
+{
+	margin: 20px;
+	width: $boxWidth;
+	height: $boxHeight;
+	position: relative;
+	text-shadow-color: white;
+	text-shadow: 0 0 2px;
+	display: inline-block; 	
+			
+	.content
+	{
+		background-color: $colorBackground;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		right: 10px;
+		bottom: 10px;
+		text-align: center;	
+		line-height: 180px;
+		overflow: hidden;
+		z-index: 10; //required because of anonymous content borders
+	}
+}
+
+.sidonia.large
+{
+	width: $boxWidth * 2;	
+}
+
+//create rules for each flavour
+@each $value in $flavour-list 
+{
+
+	.sidonia.#{nth($value, 1)}
+	{
+		@include box-frame(nth($value, 2));
+	}
+
+	.sidonia.#{nth($value, 1)}.stripes
+	{
+		@include box-stripes(nth($value, 2));
+	}
+
+	.sidonia.#{nth($value, 1)}.stripes-transparent
+	{
+		@include box-stripes(rgba(nth($value, 2), 0.3));
+	}
+	
+	.sidonia.#{nth($value, 1)}.stripes.animated,
+	.sidonia.#{nth($value, 1)}.stripes-transparent.animated
+	{
+		animation: 4s linear 0s infinite normal progress;
+	}
+
+	.sidonia.#{nth($value, 1)} .content.fill,
+	.sidonia.#{nth($value, 1)} .content.hover:hover
+	{
+		background-color: #{nth($value, 2)};
+		color: $colorBackground;
+	}
+
+	.sidonia.#{nth($value, 1)} .content.fill.hover:hover
+	{
+		background-color: $colorBackground;
+		color: #{nth($value, 2)};
+	}
+	
+	.sidonia.#{nth($value, 1)} .footer
+	{
+		width: $boxWidth - 20px;
+		height: 20px;
+		display: block;
+		background-color: rgba(nth($value, 2),0.7);			
+		bottom: 0;
+		font-size: 20px;
+		color: $colorBackground;	
+		position: absolute;
+		padding: 10px;
+		z-index: 20;
+	}
+		
+	.sidonia.#{nth($value, 1)}:before
+	{				
+		width: $boxWidth + 20px;
+		height: $boxHeight;
+		border-top: solid 1px nth($value, 2);
+		border-bottom: solid 1px nth($value, 2);
+		
+		content: "";
+		position: absolute;
+		
+		top: -1px;
+		left: -10px;
+	}
+					
+	.sidonia.#{nth($value, 1)}:after
+	{				
+		width: $boxWidth;
+		height: $boxHeight + 20px;
+		border-left: solid 1px nth($value, 2);
+		border-right: solid 1px nth($value, 2);
+		
+		content: "";
+		position: absolute;
+		
+		left: -1px;
+		top: -10px;
+	}
+	
+	.sidonia.large.#{nth($value, 1)}:before
+	{
+		width: $boxWidth * 2 + 20px;		
+	}
+	
+	.sidonia.large.#{nth($value, 1)}:after
+	{
+		width: $boxWidth * 2;	
+	}
+	
+	.sidonia > div.content.fill.#{nth($value, 1)},
+	.sidonia > div.content.#{nth($value, 1)}.hover:hover
+	{
+		background-color: nth($value, 2);
+		color: $colorBackground;
+	}
+	
+	.sidonia .content.#{nth($value, 1)},
+	.sidonia > div.content.fill.#{nth($value, 1)}.hover:hover,
+	{
+		background-color: $colorBackground;
+		color: nth($value, 2);		
+	}
+}
+
+.content.transparent
+{
+	background-color: transparent;
+}
+
+.content.text-small
+{
+	font-size: 20px;
+}
+
+.pulse {
+	animation: blink 1s linear infinite;
+}
+
