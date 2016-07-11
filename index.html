@@ -1,11 +1,275 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Sidonia UI</title>
-    <link href="style.css" rel="stylesheet">
-  </head>
-  <body>
-    <p>TEST</p>
-  </body>
-</html>
+<html>	
+	<head>
+		<title>Sidonia UI - Examples</title>
+		<meta charset="utf-8" />
+		<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+		<link href="sidonia.min.css" rel="stylesheet">	
+		<link href="style.css" rel="stylesheet">		
+	</head>
+	<body>
+		
+		<h1>Sidonia UI</h1>
+		
+		<div class="text main">
+			<p>Version 0.3</p>
+			<p>Sidonia UI is a web design inspired by computer interfaces used in <a href="https://en.wikipedia.org/wiki/Knights_of_Sidonia">Knights of Sidonia.</a></p>
+			<p>Project @ <a href="https://github.com/wadokei/sidonia-ui">github</a></p>
+			<p>Font &gt; <a href="https://www.google.com/fonts/specimen/Audiowide">Audiowide</a></p>
+			<p>Style sheet &gt; <a href="sidonia.scss">SASS</a> / <a href="sidonia.css">CSS</a> / <a href="sidonia.min.css">CSS minified</a></p>
+		</div>
+		
+		<div class="text">
+			<p>Box elements have the following structure with [FLAVOUR] being a placeholder for one of the available flavours:</p>		
+			<p>'neutral', 'info', 'positive', 'warning', 'caution', 'ok' or 'love'</p>
+			<p>Hint: To create a custom flavour simply add a name and color to <em>$flavour-list</em> in the SASS file.</p>
+		</div>
+				
+<code><pre>
+&lt;div class="<em>sidonia [FLAVOUR]</em>"&gt;
+   &lt;div class="<em>content</em>"&gt;text&lt;/div&gt;
+&lt;/div&gt;
+</pre></code>
+				
+		<div class="sidonia neutral">						
+			<div class="content">neutral</div>				
+		</div>
+		
+		<div class="sidonia info">						
+			<div class="content">info</div>				
+		</div>
+		
+		<div class="sidonia positive">						
+			<div class="content">positive</div>				
+		</div>
+		
+		<div class="sidonia warning">						
+			<div class="content">warning</div>				
+		</div>
+		
+		<div class="sidonia caution">						
+			<div class="content">caution</div>				
+		</div>
+		
+		<div class="sidonia ok">						
+			<div class="content">ok</div>				
+		</div>
+		
+		<div class="sidonia love">						
+			<div class="content">love</div>				
+		</div>
+		
+		
+		<div class="text">
+			<p>Fill the background colour of 'content' and invert the text colours with the <em>'fill'</em> class.</p>
+		</div>
+		
+<code><pre>
+&lt;div class="sidonia warning"&gt;
+   &lt;div class="content <em>fill</em>"&gt;警告&lt;/div&gt;
+&lt;/div&gt;
+</pre></code>
+		
+		<div class="sidonia warning">						
+			<div class="content fill">警告</div>				
+		</div>
 
+		<div class="text">
+			<p>Make the box stand out by adding <em>'stripes'</em> or <em>'stripes-transparent'</em>.</p>
+			<p>Note that per default 'content' uses the page background color <em>$colorBackground</em>, concealing the stripes, making it appear only like a border.</p>
+			<p>Set content to <em>'transparent'</em> to let the stipes fill the entire box.</p>
+		</div>
+		
+<code><pre>
+&lt;div class="sidonia warning <em>stripes</em>"&gt;
+   &lt;div class="content"&gt;stripes&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="sidonia positive <em>stripes-transparent</em>"&gt;						
+   &lt;div class="content <em>transparent</em>"&gt;stripes&lt;/div&gt;			
+&lt;/div&gt;
+</pre></code>
+		
+		<div class="sidonia warning stripes">						
+			<div class="content">stripes</div>				
+		</div>
+		
+		<div class="sidonia positive stripes-transparent">						
+			<div class="content transparent">stripes</div>				
+		</div>
+		
+		<div class="text">
+			<p>Add a moving border with 'animated'</p>
+			<p>Please note that the animation does not scale well. Changing the box dimensions will cause artifacts to appear.</p>
+		</div>
+		
+<code><pre>
+&lt;div class="sidonia caution stripes <em>animated</em>"&gt;
+   &lt;div class="content"&gt;注意&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="sidonia ok stripes <em>animated</em>"&gt;
+   &lt;div class="content fill"&gt;確認します&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="sidonia neutral stripes-transparent <em>animated</em>"&gt;
+   &lt;div class="content transparent"&gt;neutral&lt;/div&gt;
+&lt;/div&gt;
+</pre></code>
+				
+		<div class="sidonia caution stripes animated">						
+			<div class="content">注意</div>				
+		</div>
+		
+		<div class="sidonia ok stripes animated">						
+			<div class="content fill">確認します</div>				
+		</div>
+		
+		<div class="sidonia neutral stripes-transparent animated">						
+			<div class="content transparent">neutral</div>				
+		</div>
+		
+		<div class="text">
+			<p>Additional text can be placed in a footer.</p>
+		</div>
+		
+<code><pre>
+&lt;div class="sidonia info stripes-transparent animated"&gt;
+   &lt;div class="content transparent"&gt;info&lt;/div&gt;
+   <em>&lt;div class="footer"&gt;information&lt;/div&gt;</em>
+&lt;/div&gt;
+
+&lt;div class="sidonia ok stripes-transparent animated"&gt;
+   &lt;div class="content"&gt;ok&lt;/div&gt;
+   <em>&lt;div class="footer"&gt;confirm&lt;/div&gt;</em>
+&lt;/div&gt;
+</pre></code>		
+		
+		<div class="sidonia info stripes-transparent animated">						
+			<div class="content transparent">info</div>				
+			<div class="footer">information</div>
+		</div>
+		
+		<div class="sidonia ok stripes-transparent animated">						
+			<div class="content">ok</div>		
+			<div class="footer">confirm</div>			
+		</div>
+		
+		
+		<div class="text">
+			<p>Use 'hover' to create an interactive button effect.</p>
+		</div>
+		
+<code><pre>
+&lt;div class="sidonia positive"&gt;
+   &lt;div class="content <em>hover</em>"&gt;hover over&lt;/div&gt;	
+&lt;/div&gt;
+
+&lt;div class="sidonia info stripes-transparent animated"&gt;
+   &lt;div class="content <em>hover</em> fill"&gt;情報&lt;/div&gt;	
+&lt;/div&gt;
+</pre></code>				
+							
+		<div class="sidonia positive">						
+			<div class="content hover">hover over</div>				
+		</div>
+	
+		<div class="sidonia info stripes-transparent animated">						
+			<div class="content hover fill">情報</div>				
+		</div>
+		
+		<div class="text">
+			<p>Use 'pulse' to create a blink effect.</p>		
+		</div>
+
+<code><pre>
+&lt;div class="sidonia love"&gt;
+   &lt;div class="content <em>pulse</em>"&gt;&amp;#10084;&lt;/div&gt;	
+&lt;/div&gt;
+
+&lt;div class="sidonia ok <em>pulse</em>"&gt;
+   &lt;div class="content"&gt;pulse&lt;/div&gt;	
+&lt;/div&gt;
+
+&lt;div class="sidonia warning stripes animated"&gt;
+   &lt;div class="content"&gt;<em>&lt;span class="pulse"&gt;alert&lt;/span&gt;</em>&lt;/div&gt;	
+&lt;/div&gt;
+</pre></code>			
+				
+		<div class="sidonia love">						
+			<div class="content pulse">&#10084;</div>				
+		</div>
+	
+		<div class="sidonia ok pulse">						
+			<div class="content">pulse</div>				
+		</div>
+		
+		<div class="sidonia warning stripes animated">						
+			<div class="content"><span class="pulse">alert</span></div>				
+		</div>
+	
+		<div class="text">
+			<p>Write more with 'text-small'.</p>
+		</div>
+		
+<code><pre>
+&lt;div class="sidonia neutral"&gt;
+   &lt;div class="content  <em>text-small</em>"&gt;Far more space&lt;/div&gt;	
+&lt;/div&gt;
+</pre></code>		
+	
+		<div class="sidonia neutral">						
+			<div class="content text-small">Far more space</div>				
+		</div>
+
+		<div class="text">
+			<p>Override the inner color by setting a flavour on 'content'.</p>
+		</div>
+		
+<code><pre>
+&lt;div class="sidonia ok stripes animated"&gt;
+   &lt;div class="content <em>neutral</em> hover"&gt;確認します&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="sidonia ok stripes animated"&gt;
+   &lt;div class="content <em>neutral</em> fill hover"&gt;確認します&lt;/div&gt;
+&lt;/div&gt;
+</pre></code>
+				
+		<div class="sidonia ok stripes animated">						
+			<div class="content neutral hover">確認します</div>				
+		</div>
+
+		<div class="sidonia ok stripes animated">						
+			<div class="content neutral fill hover">確認します</div>				
+		</div>
+
+		<div class="text">
+			<p>Get a bigger box with 'large'.</p>
+		</div>
+
+<code><pre>
+&lt;div class="sidonia positive <em>large</em>"&gt;
+   &lt;div class="content"&gt;A big box&lt;/div&gt;	
+&lt;/div&gt;
+
+&lt;div class="sidonia caution <em>large</em> stripes animated"&gt;
+   &lt;div class="content fill"&gt;Booom!&lt;/div&gt;	
+&lt;/div&gt;
+</pre></code>	
+		
+		<div class="sidonia positive large">						
+			<div class="content">A big box</div>				
+		</div>
+		
+		<div class="sidonia caution large stripes animated">						
+			<div class="content fill">Booom!</div>				
+		</div>
+	
+	<div class="text main">
+			<p>Last edited: 2016-07-11</p>
+			<p>Disclaimer: Used google translate for the Japanese characters - hope they make sense :)</p>			
+		</div>
+	
+	</body>
+</html>
