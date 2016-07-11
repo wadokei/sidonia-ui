@@ -1,0 +1,555 @@
+/* 
+ * Sidonia UI
+ * version: 0.3
+ * wadokei.github.io/sidonia-ui
+ */
+@keyframes progress {
+  to {
+    background-position: 398px 0; } }
+@keyframes blink {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0.1; } }
+body {
+  background-color: #0f222b;
+  font-family: Audiowide, consolas, monospace;
+  font-size: 60px; }
+
+.sidonia {
+  margin: 20px;
+  width: 396px;
+  height: 200px;
+  position: relative;
+  text-shadow-color: white;
+  text-shadow: 0 0 2px;
+  display: inline-block; }
+  .sidonia .content {
+    background-color: #0f222b;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 180px;
+    overflow: hidden;
+    z-index: 10; }
+
+.sidonia.large {
+  width: 792px; }
+
+.sidonia.neutral {
+  color: white;
+  position: relative;
+  box-shadow: 0px 0px 9px 2px rgba(255, 255, 255, 0.3); }
+
+.sidonia.neutral.stripes {
+  background: repeating-linear-gradient(45deg, white, white 10px, transparent 10px, transparent 20px); }
+
+.sidonia.neutral.stripes-transparent {
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3) 10px, transparent 10px, transparent 20px); }
+
+.sidonia.neutral.stripes.animated,
+.sidonia.neutral.stripes-transparent.animated {
+  animation: 4s linear 0s infinite normal progress; }
+
+.sidonia.neutral .content.fill,
+.sidonia.neutral .content.hover:hover {
+  background-color: white;
+  color: #0f222b; }
+
+.sidonia.neutral .content.fill.hover:hover {
+  background-color: #0f222b;
+  color: white; }
+
+.sidonia.neutral .footer {
+  width: 376px;
+  height: 20px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.7);
+  bottom: 0;
+  font-size: 20px;
+  color: #0f222b;
+  position: absolute;
+  padding: 10px;
+  z-index: 20; }
+
+.sidonia.neutral:before {
+  width: 416px;
+  height: 200px;
+  border-top: solid 1px white;
+  border-bottom: solid 1px white;
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -10px; }
+
+.sidonia.neutral:after {
+  width: 396px;
+  height: 220px;
+  border-left: solid 1px white;
+  border-right: solid 1px white;
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -10px; }
+
+.sidonia.large.neutral:before {
+  width: 812px; }
+
+.sidonia.large.neutral:after {
+  width: 792px; }
+
+.sidonia > div.content.fill.neutral,
+.sidonia > div.content.neutral.hover:hover {
+  background-color: white;
+  color: #0f222b; }
+
+.sidonia .content.neutral,
+.sidonia > div.content.fill.neutral.hover:hover {
+  background-color: #0f222b;
+  color: white; }
+
+.sidonia.caution {
+  color: #ff282c;
+  position: relative;
+  box-shadow: 0px 0px 9px 2px rgba(255, 40, 44, 0.3); }
+
+.sidonia.caution.stripes {
+  background: repeating-linear-gradient(45deg, #ff282c, #ff282c 10px, transparent 10px, transparent 20px); }
+
+.sidonia.caution.stripes-transparent {
+  background: repeating-linear-gradient(45deg, rgba(255, 40, 44, 0.3), rgba(255, 40, 44, 0.3) 10px, transparent 10px, transparent 20px); }
+
+.sidonia.caution.stripes.animated,
+.sidonia.caution.stripes-transparent.animated {
+  animation: 4s linear 0s infinite normal progress; }
+
+.sidonia.caution .content.fill,
+.sidonia.caution .content.hover:hover {
+  background-color: #ff282c;
+  color: #0f222b; }
+
+.sidonia.caution .content.fill.hover:hover {
+  background-color: #0f222b;
+  color: #ff282c; }
+
+.sidonia.caution .footer {
+  width: 376px;
+  height: 20px;
+  display: block;
+  background-color: rgba(255, 40, 44, 0.7);
+  bottom: 0;
+  font-size: 20px;
+  color: #0f222b;
+  position: absolute;
+  padding: 10px;
+  z-index: 20; }
+
+.sidonia.caution:before {
+  width: 416px;
+  height: 200px;
+  border-top: solid 1px #ff282c;
+  border-bottom: solid 1px #ff282c;
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -10px; }
+
+.sidonia.caution:after {
+  width: 396px;
+  height: 220px;
+  border-left: solid 1px #ff282c;
+  border-right: solid 1px #ff282c;
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -10px; }
+
+.sidonia.large.caution:before {
+  width: 812px; }
+
+.sidonia.large.caution:after {
+  width: 792px; }
+
+.sidonia > div.content.fill.caution,
+.sidonia > div.content.caution.hover:hover {
+  background-color: #ff282c;
+  color: #0f222b; }
+
+.sidonia .content.caution,
+.sidonia > div.content.fill.caution.hover:hover {
+  background-color: #0f222b;
+  color: #ff282c; }
+
+.sidonia.positive {
+  color: #00ffa2;
+  position: relative;
+  box-shadow: 0px 0px 9px 2px rgba(0, 255, 162, 0.3); }
+
+.sidonia.positive.stripes {
+  background: repeating-linear-gradient(45deg, #00ffa2, #00ffa2 10px, transparent 10px, transparent 20px); }
+
+.sidonia.positive.stripes-transparent {
+  background: repeating-linear-gradient(45deg, rgba(0, 255, 162, 0.3), rgba(0, 255, 162, 0.3) 10px, transparent 10px, transparent 20px); }
+
+.sidonia.positive.stripes.animated,
+.sidonia.positive.stripes-transparent.animated {
+  animation: 4s linear 0s infinite normal progress; }
+
+.sidonia.positive .content.fill,
+.sidonia.positive .content.hover:hover {
+  background-color: #00ffa2;
+  color: #0f222b; }
+
+.sidonia.positive .content.fill.hover:hover {
+  background-color: #0f222b;
+  color: #00ffa2; }
+
+.sidonia.positive .footer {
+  width: 376px;
+  height: 20px;
+  display: block;
+  background-color: rgba(0, 255, 162, 0.7);
+  bottom: 0;
+  font-size: 20px;
+  color: #0f222b;
+  position: absolute;
+  padding: 10px;
+  z-index: 20; }
+
+.sidonia.positive:before {
+  width: 416px;
+  height: 200px;
+  border-top: solid 1px #00ffa2;
+  border-bottom: solid 1px #00ffa2;
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -10px; }
+
+.sidonia.positive:after {
+  width: 396px;
+  height: 220px;
+  border-left: solid 1px #00ffa2;
+  border-right: solid 1px #00ffa2;
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -10px; }
+
+.sidonia.large.positive:before {
+  width: 812px; }
+
+.sidonia.large.positive:after {
+  width: 792px; }
+
+.sidonia > div.content.fill.positive,
+.sidonia > div.content.positive.hover:hover {
+  background-color: #00ffa2;
+  color: #0f222b; }
+
+.sidonia .content.positive,
+.sidonia > div.content.fill.positive.hover:hover {
+  background-color: #0f222b;
+  color: #00ffa2; }
+
+.sidonia.warning {
+  color: #ffd800;
+  position: relative;
+  box-shadow: 0px 0px 9px 2px rgba(255, 216, 0, 0.3); }
+
+.sidonia.warning.stripes {
+  background: repeating-linear-gradient(45deg, #ffd800, #ffd800 10px, transparent 10px, transparent 20px); }
+
+.sidonia.warning.stripes-transparent {
+  background: repeating-linear-gradient(45deg, rgba(255, 216, 0, 0.3), rgba(255, 216, 0, 0.3) 10px, transparent 10px, transparent 20px); }
+
+.sidonia.warning.stripes.animated,
+.sidonia.warning.stripes-transparent.animated {
+  animation: 4s linear 0s infinite normal progress; }
+
+.sidonia.warning .content.fill,
+.sidonia.warning .content.hover:hover {
+  background-color: #ffd800;
+  color: #0f222b; }
+
+.sidonia.warning .content.fill.hover:hover {
+  background-color: #0f222b;
+  color: #ffd800; }
+
+.sidonia.warning .footer {
+  width: 376px;
+  height: 20px;
+  display: block;
+  background-color: rgba(255, 216, 0, 0.7);
+  bottom: 0;
+  font-size: 20px;
+  color: #0f222b;
+  position: absolute;
+  padding: 10px;
+  z-index: 20; }
+
+.sidonia.warning:before {
+  width: 416px;
+  height: 200px;
+  border-top: solid 1px #ffd800;
+  border-bottom: solid 1px #ffd800;
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -10px; }
+
+.sidonia.warning:after {
+  width: 396px;
+  height: 220px;
+  border-left: solid 1px #ffd800;
+  border-right: solid 1px #ffd800;
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -10px; }
+
+.sidonia.large.warning:before {
+  width: 812px; }
+
+.sidonia.large.warning:after {
+  width: 792px; }
+
+.sidonia > div.content.fill.warning,
+.sidonia > div.content.warning.hover:hover {
+  background-color: #ffd800;
+  color: #0f222b; }
+
+.sidonia .content.warning,
+.sidonia > div.content.fill.warning.hover:hover {
+  background-color: #0f222b;
+  color: #ffd800; }
+
+.sidonia.ok {
+  color: #00ff37;
+  position: relative;
+  box-shadow: 0px 0px 9px 2px rgba(0, 255, 55, 0.3); }
+
+.sidonia.ok.stripes {
+  background: repeating-linear-gradient(45deg, #00ff37, #00ff37 10px, transparent 10px, transparent 20px); }
+
+.sidonia.ok.stripes-transparent {
+  background: repeating-linear-gradient(45deg, rgba(0, 255, 55, 0.3), rgba(0, 255, 55, 0.3) 10px, transparent 10px, transparent 20px); }
+
+.sidonia.ok.stripes.animated,
+.sidonia.ok.stripes-transparent.animated {
+  animation: 4s linear 0s infinite normal progress; }
+
+.sidonia.ok .content.fill,
+.sidonia.ok .content.hover:hover {
+  background-color: #00ff37;
+  color: #0f222b; }
+
+.sidonia.ok .content.fill.hover:hover {
+  background-color: #0f222b;
+  color: #00ff37; }
+
+.sidonia.ok .footer {
+  width: 376px;
+  height: 20px;
+  display: block;
+  background-color: rgba(0, 255, 55, 0.7);
+  bottom: 0;
+  font-size: 20px;
+  color: #0f222b;
+  position: absolute;
+  padding: 10px;
+  z-index: 20; }
+
+.sidonia.ok:before {
+  width: 416px;
+  height: 200px;
+  border-top: solid 1px #00ff37;
+  border-bottom: solid 1px #00ff37;
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -10px; }
+
+.sidonia.ok:after {
+  width: 396px;
+  height: 220px;
+  border-left: solid 1px #00ff37;
+  border-right: solid 1px #00ff37;
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -10px; }
+
+.sidonia.large.ok:before {
+  width: 812px; }
+
+.sidonia.large.ok:after {
+  width: 792px; }
+
+.sidonia > div.content.fill.ok,
+.sidonia > div.content.ok.hover:hover {
+  background-color: #00ff37;
+  color: #0f222b; }
+
+.sidonia .content.ok,
+.sidonia > div.content.fill.ok.hover:hover {
+  background-color: #0f222b;
+  color: #00ff37; }
+
+.sidonia.info {
+  color: #2e9196;
+  position: relative;
+  box-shadow: 0px 0px 9px 2px rgba(46, 145, 150, 0.3); }
+
+.sidonia.info.stripes {
+  background: repeating-linear-gradient(45deg, #2e9196, #2e9196 10px, transparent 10px, transparent 20px); }
+
+.sidonia.info.stripes-transparent {
+  background: repeating-linear-gradient(45deg, rgba(46, 145, 150, 0.3), rgba(46, 145, 150, 0.3) 10px, transparent 10px, transparent 20px); }
+
+.sidonia.info.stripes.animated,
+.sidonia.info.stripes-transparent.animated {
+  animation: 4s linear 0s infinite normal progress; }
+
+.sidonia.info .content.fill,
+.sidonia.info .content.hover:hover {
+  background-color: #2e9196;
+  color: #0f222b; }
+
+.sidonia.info .content.fill.hover:hover {
+  background-color: #0f222b;
+  color: #2e9196; }
+
+.sidonia.info .footer {
+  width: 376px;
+  height: 20px;
+  display: block;
+  background-color: rgba(46, 145, 150, 0.7);
+  bottom: 0;
+  font-size: 20px;
+  color: #0f222b;
+  position: absolute;
+  padding: 10px;
+  z-index: 20; }
+
+.sidonia.info:before {
+  width: 416px;
+  height: 200px;
+  border-top: solid 1px #2e9196;
+  border-bottom: solid 1px #2e9196;
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -10px; }
+
+.sidonia.info:after {
+  width: 396px;
+  height: 220px;
+  border-left: solid 1px #2e9196;
+  border-right: solid 1px #2e9196;
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -10px; }
+
+.sidonia.large.info:before {
+  width: 812px; }
+
+.sidonia.large.info:after {
+  width: 792px; }
+
+.sidonia > div.content.fill.info,
+.sidonia > div.content.info.hover:hover {
+  background-color: #2e9196;
+  color: #0f222b; }
+
+.sidonia .content.info,
+.sidonia > div.content.fill.info.hover:hover {
+  background-color: #0f222b;
+  color: #2e9196; }
+
+.sidonia.love {
+  color: #c12473;
+  position: relative;
+  box-shadow: 0px 0px 9px 2px rgba(193, 36, 115, 0.3); }
+
+.sidonia.love.stripes {
+  background: repeating-linear-gradient(45deg, #c12473, #c12473 10px, transparent 10px, transparent 20px); }
+
+.sidonia.love.stripes-transparent {
+  background: repeating-linear-gradient(45deg, rgba(193, 36, 115, 0.3), rgba(193, 36, 115, 0.3) 10px, transparent 10px, transparent 20px); }
+
+.sidonia.love.stripes.animated,
+.sidonia.love.stripes-transparent.animated {
+  animation: 4s linear 0s infinite normal progress; }
+
+.sidonia.love .content.fill,
+.sidonia.love .content.hover:hover {
+  background-color: #c12473;
+  color: #0f222b; }
+
+.sidonia.love .content.fill.hover:hover {
+  background-color: #0f222b;
+  color: #c12473; }
+
+.sidonia.love .footer {
+  width: 376px;
+  height: 20px;
+  display: block;
+  background-color: rgba(193, 36, 115, 0.7);
+  bottom: 0;
+  font-size: 20px;
+  color: #0f222b;
+  position: absolute;
+  padding: 10px;
+  z-index: 20; }
+
+.sidonia.love:before {
+  width: 416px;
+  height: 200px;
+  border-top: solid 1px #c12473;
+  border-bottom: solid 1px #c12473;
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -10px; }
+
+.sidonia.love:after {
+  width: 396px;
+  height: 220px;
+  border-left: solid 1px #c12473;
+  border-right: solid 1px #c12473;
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: -10px; }
+
+.sidonia.large.love:before {
+  width: 812px; }
+
+.sidonia.large.love:after {
+  width: 792px; }
+
+.sidonia > div.content.fill.love,
+.sidonia > div.content.love.hover:hover {
+  background-color: #c12473;
+  color: #0f222b; }
+
+.sidonia .content.love,
+.sidonia > div.content.fill.love.hover:hover {
+  background-color: #0f222b;
+  color: #c12473; }
+
+.content.transparent {
+  background-color: transparent; }
+
+.content.text-small {
+  font-size: 20px; }
+
+.pulse {
+  animation: blink 1s linear infinite; }
+
+/*# sourceMappingURL=sidonia.css.map */
