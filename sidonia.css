@@ -1,6 +1,6 @@
 /* 
  * Sidonia UI
- * version: 0.3
+ * version: 0.3.1
  * wadokei.github.io/sidonia-ui
  */
 @keyframes progress {
@@ -111,6 +111,9 @@ body {
   background-color: #0f222b;
   color: white; }
 
+.content.neutral.transparent {
+  background-color: transparent; }
+
 .sidonia.caution {
   color: #ff282c;
   position: relative;
@@ -182,6 +185,9 @@ body {
 .sidonia > div.content.fill.caution.hover:hover {
   background-color: #0f222b;
   color: #ff282c; }
+
+.content.caution.transparent {
+  background-color: transparent; }
 
 .sidonia.positive {
   color: #00ffa2;
@@ -255,6 +261,9 @@ body {
   background-color: #0f222b;
   color: #00ffa2; }
 
+.content.positive.transparent {
+  background-color: transparent; }
+
 .sidonia.warning {
   color: #ffd800;
   position: relative;
@@ -326,6 +335,9 @@ body {
 .sidonia > div.content.fill.warning.hover:hover {
   background-color: #0f222b;
   color: #ffd800; }
+
+.content.warning.transparent {
+  background-color: transparent; }
 
 .sidonia.ok {
   color: #00ff37;
@@ -399,6 +411,9 @@ body {
   background-color: #0f222b;
   color: #00ff37; }
 
+.content.ok.transparent {
+  background-color: transparent; }
+
 .sidonia.info {
   color: #2e9196;
   position: relative;
@@ -471,6 +486,9 @@ body {
   background-color: #0f222b;
   color: #2e9196; }
 
+.content.info.transparent {
+  background-color: transparent; }
+
 .sidonia.love {
   color: #c12473;
   position: relative;
@@ -542,6 +560,12 @@ body {
 .sidonia > div.content.fill.love.hover:hover {
   background-color: #0f222b;
   color: #c12473; }
+
+.content.love.transparent {
+  background-color: transparent; }
+
+.sidonia.large .footer {
+  width: 772px; }
 
 .content.transparent {
   background-color: transparent; }

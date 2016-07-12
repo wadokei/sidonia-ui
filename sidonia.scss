@@ -1,6 +1,6 @@
 /* 
  * Sidonia UI
- * version: 0.3
+ * version: 0.3.1
  * wadokei.github.io/sidonia-ui
  */
 
@@ -195,6 +195,16 @@ body
 		background-color: $colorBackground;
 		color: nth($value, 2);		
 	}
+	
+	.content.#{nth($value, 1)}.transparent
+	{
+		background-color: transparent;
+	}
+}
+
+.sidonia.large .footer
+{
+	width: $boxWidth * 2 - 20px;
 }
 
 .content.transparent

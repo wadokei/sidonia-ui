@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sidonia UI generator</title>
+		<link href="sidonia.css" rel="stylesheet" />
+		<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+		<meta charset="utf-8" />
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(function(){
+				$('form').each(function() { this.reset() });
+			
+				var demoRoot = $("#demo");
+				var demoContent = $(".content", demoRoot);
+				var demoText = $("span", demoContent);
+				
+				var flavours = "neutral positive ok warning caution info love";
+			
+				$("#text").keyup(function(){
+					demoText.text($("#text").val());
+					updateCode();
+				});
+				
+				$("#footer-text").keyup(function(){
+					var footerText = $("#footer-text").val();
+					if(footerText.length > 0)
+					{
+						if($(".footer", demoRoot).length == 0)
+						{
+							demoRoot.append('<div class="footer"></div>');
+						}
+						
+						$(".footer", demoRoot).text(footerText);
+					}
+					else
+					{
+						$(".footer", demoRoot).remove();
+					}
+				
+					updateCode();
+				});
+				
+				$("#flavour-select").change(function(){
+					demoRoot.removeClass(flavours).addClass($(this).val());
+					updateCode();
+				});
+				
+				$("#content-flavour-select").change(function(){
+					demoContent.removeClass(flavours).addClass($(this).val());
+					updateCode();
+				});
+												
+				$("#stripes-select").change(function(){
+					demoRoot.removeClass("stripes stripes-transparent").addClass($(this).val());
+					updateCode();
+				});
+				
+				$("#animated-check").change(function(){
+					demoRoot.removeClass("animated");
+					if($(this).is(":checked"))
+					{
+						demoRoot.addClass("animated");
+					}
+					updateCode();
+				});
+				
+				$("#large-check").change(function(){
+					demoRoot.removeClass("large");
+					if($(this).is(":checked"))
+					{
+						demoRoot.addClass("large");
+					}
+					updateCode();
+				});
+				
+				$("#text-small-check").change(function(){
+					demoContent.removeClass("text-small");
+					if($(this).is(":checked"))
+					{
+						demoContent.addClass("text-small");
+					}
+					updateCode();
+				});	
+
+				$("#hover-check").change(function(){
+					demoContent.removeClass("hover");
+					if($(this).is(":checked"))
+					{
+						demoContent.addClass("hover");
+					}
+					updateCode();
+				});				
+
+				$("#content-fill-select").change(function(){					
+					demoContent.removeClass("fill transparent");
+					var contentFill = $(this).val();
+					if(contentFill != 'background color')
+					{
+						demoContent.addClass(contentFill);
+					}
+					updateCode();
+				});				
+				
+				$("#pulse-select").change(function(){
+					demoRoot.removeClass("pulse");
+					demoContent.removeClass("pulse");
+					demoText.removeClass("pulse");
+					var selectedPulse = $(this).val();					
+					if(selectedPulse == "sidonia"){
+						demoRoot.addClass("pulse");
+					} else if(selectedPulse == "content"){
+						demoContent.addClass("pulse");
+					} else if(selectedPulse == "text"){
+						demoText.addClass("pulse");
+					}
+					updateCode();
+				});
+				
+			
+				updateCode();
+			});	
+
+			function updateCode()
+			{
+				$("code").text($("#demo").parent().html());
+			}
+			
+		</script>		
+		<style>
+			h1{
+				font-size: 1em;
+				color: white;
+			}
+		
+			#demo, #controls, code, h1, .text{
+				margin-top: 50px;
+				margin-left: 100px;
+			}
+			
+			#controls, .text{
+				color: white;
+				font-size: 14px;
+				font-family: Consolas, monospace;
+				width: 600px;
+			}
+			
+			#controls label
+			{
+				display: inline-block;
+				margin: 10px 10px 0 0;
+			}
+			
+			code 
+			{ 
+				font-family: monospace; 
+				font-size: 0.3em; 
+				color: rgb(0,170,162); 
+				border-left: solid 4px white;
+				display: block;
+				padding: 10px;								
+			}
+			
+			.text
+			{
+				border-left: solid 4px white;
+				padding: 10px;
+			}
+			
+			a, a:hover 
+			{ 
+				color: rgb(0,255,162);
+			}
+		</style>
+	</head>
+	<body>
+	
+		<h1>Sidonia UI - generator</h1>
+		
+		<div class="text">
+			<p>Here you can play around with the different settings of the UI.</p>
+			<p>Documentation @ <a href="https://wadokei.github.io/sidonia-ui">github pages</a></p>
+		</div>
+		
+		<form id="controls">
+			<label for="text">text
+				<input id="text" type="text" value="デモ" />
+			</label>
+		
+			<label for="flavour-select">flavour
+				<select id="flavour-select">
+					<option>neutral</option>
+					<option>positive</option>
+					<option>warning</option>
+					<option>caution</option>
+					<option>ok</option>
+					<option>info</option>
+					<option>love</option>
+				</select>
+			</label>
+			
+			<label for="large-check">large
+				<input id="large-check" type="checkbox" />
+			</label>
+			
+			<label for="text-small-check">text small
+				<input id="text-small-check" type="checkbox" />
+			</label>
+			
+			<label for="content-fill-select">content fill
+				<select id="content-fill-select">
+					<option>background color</option>
+					<option>fill</option>
+					<option>transparent</option>
+				</select>
+			</label>
+			
+			<label for="content-flavour-select">content flavour
+				<select id="content-flavour-select">
+					<option></option>
+					<option>neutral</option>
+					<option>positive</option>
+					<option>warning</option>
+					<option>caution</option>
+					<option>ok</option>
+					<option>info</option>
+					<option>love</option>
+				</select>
+			</label>
+			
+			<label for="hover-check">hover
+				<input id="hover-check" type="checkbox" />
+			</label>
+			
+			<label for="stripes-select">stripes
+				<select id="stripes-select">
+					<option></option>
+					<option>stripes</option>
+					<option>stripes-transparent</option>
+				</select>
+			</label>
+			
+			<label for="animated-check">animated
+				<input id="animated-check" type="checkbox" />
+			</label>
+						
+			
+					
+			
+			
+			<label for="pulse-select">pulse
+				<select id="pulse-select">
+					<option></option>
+					<option>sidonia</option>
+					<option>content</option>
+					<option>text</option>
+				</select>
+			</label>
+			
+			
+			
+			<label for="footer-text">footer text
+				<input id="footer-text" type="text" />
+			</label>
+		</form>
+	
+		<div>
+			<div id="demo" class="sidonia neutral">
+				<div class="content"><span>デモ</span></div>
+			</div>
+		</div>
+		
+		<code>
+			
+		</code>
+	</body>
+</html>
